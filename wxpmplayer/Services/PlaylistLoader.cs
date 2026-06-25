@@ -20,7 +20,7 @@ namespace wxpmplayer.Services
                 var _file = TagLib.File.Create(file);
                 string titleMetadata = _file.Tag.Title;
                 string artist = _file.Tag.FirstPerformer ?? "Artist not found.";
-
+                TimeSpan duration = _file.Properties.Duration;
                 var picture = _file.Tag.Pictures.Length > 0 ? _file.Tag.Pictures[0] : null;
 
                 if (picture != null)
@@ -36,12 +36,12 @@ namespace wxpmplayer.Services
                     bitmap.Freeze();
 
                     string title = Path.GetFileNameWithoutExtension(file);
-                    songs.Add(new Song { Title = string.IsNullOrWhiteSpace(titleMetadata) ? title : titleMetadata, FilePath = file, Artist = artist, AlbumImage = bitmap });
+                    songs.Add(new Song { Title = string.IsNullOrWhiteSpace(titleMetadata) ? title : titleMetadata, FilePath = file, Artist = artist, AlbumImage = bitmap, Duration = duration });
 
                 } else
                 {
                     string title = Path.GetFileNameWithoutExtension(file);
-                    songs.Add(new Song { Title = string.IsNullOrWhiteSpace(titleMetadata) ? title : titleMetadata, FilePath = file, Artist = artist, AlbumImage = null });
+                    songs.Add(new Song { Title = string.IsNullOrWhiteSpace(titleMetadata) ? title : titleMetadata, FilePath = file, Artist = artist, AlbumImage = null, Duration = duration });
                 }
             }
 

@@ -11,7 +11,8 @@
         BorderThickness="1"
         AllowsTransparency="True"
         Background="Transparent"
-        Title="MainWindow" Height="160" Width="400">
+        Title="MainWindow" Height="180" Width="400">
+    
     <Border  Background="#B7B7B7" BorderThickness="1" >
         <Grid>
 
@@ -41,7 +42,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock 
-                        Text="Music Player"
+                        Text="CD Player"
                         Foreground="White"
                         FontWeight="bold"
                         VerticalAlignment="Center"
@@ -83,10 +84,10 @@
                         <ColumnDefinition Width="119*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Border BorderBrush="Gray" BorderThickness="1" Margin="2,0,0,2" Grid.ColumnSpan="2">
+                    <Border Height="120" Width="140" BorderBrush="Gray" BorderThickness="2" Margin="2,0,0,2" Grid.ColumnSpan="2">
                         <Grid>
                             <TextBlock Visibility="Collapsed" x:Name="NoAlbumArtText" Text="No image available." FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="SlateGray"/>
-                            <Image x:Name="AlbumArt"/> 
+                            <Image x:Name="AlbumArt" Stretch="UniformToFill"/> 
                         </Grid>
                     </Border>
 
@@ -118,8 +119,9 @@
                             Margin="0,0,0,10"/>
                         </Grid>
 
-                        <!-- Buttons -->
+                        <Slider Margin="0 0 0 10" Minimum="0" x:Name="ProgressSlider"/>
 
+                        <!-- Buttons -->
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>

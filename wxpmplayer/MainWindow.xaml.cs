@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace wxpmplayer
 {
@@ -19,16 +20,27 @@ namespace wxpmplayer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DispatcherTimer timer;
+        private MediaPlayer _player;
+
         public MainWindow()
         {
             InitializeComponent();
+            timer = new DispatcherTimer();
+            _player = new MediaPlayer();
+
+            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.Tick += Timer_Tick;
         }
 
-        private MediaPlayer _player = new();
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            double currentPosition = _player.Position.TotalSeconds;
+            ProgressSlider.Value = currentPosition;
+        }
+
         private bool _isPaused = false;
         private int _currentIndex = -1;
-        private bool artistChange = false;
-        private List<Song> artistSongs = new List<Song>();
 
         private List<Song> _songs = new List<Song>();
         private List<Song> _currentPlaylist = new List<Song>();
@@ -50,7 +62,9 @@ namespace wxpmplayer
             _player.Open(new Uri(song.FilePath));
             //_player.Open(new Uri(_currentPlaylist[_currentIndex].FilePath));
             _player.Play();
-          
+
+            timer.Start();
+            ProgressSlider.Maximum = song.Duration.TotalSeconds;
         }
 
         private void LoadPlaylist_Click(object sender, RoutedEventArgs e)
@@ -94,6 +108,7 @@ namespace wxpmplayer
             {
                 _player.Play();
                 _isPaused = false;
+                timer.Start();
                 return;
             }
 
@@ -154,10 +169,12 @@ namespace wxpmplayer
         {
             _player.Pause();
             _isPaused = true;
+            timer.Stop();
         }
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
             _player.Stop();
+            timer.Stop();
         }
 
 

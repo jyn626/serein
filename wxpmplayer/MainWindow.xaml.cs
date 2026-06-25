@@ -1,5 +1,5 @@
-﻿using mxpmplayer.Models;
-using mxpmplayer.Services;
+﻿using wxpmplayer.Models;
+using wxpmplayer.Services;
 using Microsoft.Win32;
 using System.Text;
 using System.Windows;
@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace mxpmplayer
+namespace wxpmplayer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

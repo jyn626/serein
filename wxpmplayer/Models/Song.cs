@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Media.Imaging;
 
-namespace mxpmplayer.Models
+namespace wxpmplayer.Models
 {
     public class Song
     {

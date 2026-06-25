@@ -1,7 +1,7 @@
-﻿<Application x:Class="lite.App"
+﻿<Application x:Class="wxpmplayer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:lite"
+             xmlns:local="clr-namespace:wxpmplayer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

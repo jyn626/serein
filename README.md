@@ -1,4 +1,8 @@
-﻿# wxpmplayer
+> [!WARNING]
+> in development.
+ 
+ # wxpmplayer
+windows xp themed music player inspired by old ui aesthetics built with wpf
 
 ## License
 

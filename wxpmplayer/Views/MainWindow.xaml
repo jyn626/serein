@@ -93,7 +93,7 @@
                         <TextBlock FontSize="10" Text="View" TextDecorations="Underline"/>
                     </MenuItem.Header>
 
-                    <MenuItem Header="Always Show" IsCheckable="True" Checked="AlwaysShow_Checked" Unchecked="AlwaysShow_Unchecked"/>
+                    <MenuItem Header="Always Show" IsCheckable="True" IsChecked="True" Checked="AlwaysShow_Checked" Unchecked="AlwaysShow_Unchecked"/>
                 </MenuItem>
             </Menu>
 

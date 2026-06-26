@@ -12,6 +12,7 @@
         UseLayoutRounding="True"
         Background="Transparent"
         Title="MainWindow" 
+        Topmost="True"
         Height="214" Width="430">
     <Window.Resources>
 
@@ -86,6 +87,13 @@
                         <TextBlock FontSize="10" Text="Disc" TextDecorations="Underline"/>
                     </MenuItem.Header>
                     <MenuItem Header="Load Playlist" Click="LoadPlaylist_Click"/>
+                </MenuItem>
+                <MenuItem>
+                    <MenuItem.Header>
+                        <TextBlock FontSize="10" Text="View" TextDecorations="Underline"/>
+                    </MenuItem.Header>
+
+                    <MenuItem Header="Always Show" IsCheckable="True" Checked="AlwaysShow_Checked" Unchecked="AlwaysShow_Unchecked"/>
                 </MenuItem>
             </Menu>
 

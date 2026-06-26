@@ -48,8 +48,17 @@ namespace wxpmplayer
                 return;
             }
 
+            if (_audioPlayer.isMediaEnded)
+            {
+                GoToNextTrack();
+                _audioPlayer.isMediaEnded = false;
+                return;
+            }
+
             double currentPosition = _audioPlayer.GetPlaybackPositionInSeconds();
             ProgressSlider.Value = currentPosition;
+
+            
         }
 
         private void Play(Song song)
@@ -104,7 +113,7 @@ namespace wxpmplayer
             }
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
+        private void GoToNextTrack()
         {
             if (_currentPlaylist.Count <= 0)
             {
@@ -127,7 +136,7 @@ namespace wxpmplayer
             TrackComboBox.SelectedIndex = _currentIndex;
         }
 
-        private void PrevButton_Click(object sender, RoutedEventArgs e)
+        private void GoToPrevTrack()
         {
             if (_currentPlaylist.Count <= 0)
             {
@@ -148,6 +157,16 @@ namespace wxpmplayer
             _currentIndex--;
             TrackComboBox.SelectedIndex = _currentIndex;
             Play(_currentPlaylist[_currentIndex]);
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            GoToNextTrack();
+        }
+
+        private void PrevButton_Click(object sender, RoutedEventArgs e)
+        {
+            GoToPrevTrack();
         }
 
         private void PauseButton_Click(object sender, RoutedEventArgs e)

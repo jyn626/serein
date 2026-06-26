@@ -13,10 +13,19 @@ namespace wxpmplayer.Services
 
         private readonly MediaPlayer _player;
         public bool isPaused = false;
+        public bool isMediaEnded = false;
+
         public AudioPlayer()
         {
             _player = new MediaPlayer();
+            _player.MediaEnded += _player_MediaEnded;
         }
+
+        private void _player_MediaEnded(object? sender, EventArgs e)
+        {
+            isMediaEnded = true;
+        }
+
 
         public void Play(Song song)
         {
@@ -56,5 +65,7 @@ namespace wxpmplayer.Services
         {
             _player.Position = TimeSpan.FromSeconds(value);
         }
+
+        
     }
 }

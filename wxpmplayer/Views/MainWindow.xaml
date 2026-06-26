@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:wxpmplayer"
+        xmlns:fa="clr-namespace:FontAwesome.Sharp;assembly=FontAwesome.Sharp"
+        xmlns:local="clr-namespace:wxpmplayer" 
         mc:Ignorable="d"
         FontFamily="Segoe UI"
         WindowStyle="None"
@@ -13,7 +14,7 @@
         Background="Transparent"
         Title="MainWindow" 
         Topmost="True"
-        Height="219" Width="430">
+        Height="219" Width="460">
     <Window.Resources>
 
     </Window.Resources>
@@ -147,7 +148,6 @@
                             PreviewMouseLeftButtonDown="ProgressSlider_PreviewMouseLeftButtonDown"
                             PreviewMouseLeftButtonUp="ProgressSlider_PreviewMouseLeftButtonUp"
                             />
-                        
 
                         <!-- Buttons -->
                         <Grid>
@@ -159,11 +159,44 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <Button Height="30" Style="{StaticResource Win98ButtonStyle}" Click="PrevButton_Click" Grid.Column="0" Content="Prev" Margin="0 0 4 0"/>
-                            <Button Height="30" Style="{StaticResource Win98ButtonStyle}" Click="NextButton_Click" Grid.Column="1" Content="Next" Margin="0 0 4 0"/>
-                            <Button Height="30" Style="{StaticResource Win98ButtonStyle}" Click="PlayButton_Click" Grid.Column="2" Content="Play" Margin="0 0 4 0"/>
-                            <Button Height="30" Style="{StaticResource Win98ButtonStyle}" Click="PauseButton_Click" Grid.Column="3" Content="Pause" Margin="0 0 4 0"/>
-                            <Button Height="30" Style="{StaticResource Win98ButtonStyle}" Click="StopButton_Click" Grid.Column="4" Content="Stop"  />
+                            <Button Height="30" 
+                                Style="{StaticResource Win98ButtonStyle}"
+                                Click="PrevButton_Click"
+                                Grid.Column="0"
+                                Margin="0 0 4 0">
+                                <fa:IconBlock Icon="BackwardStep" FontSize="14"/>
+                            </Button>
+
+                            <Button Height="30"
+                                Style="{StaticResource Win98ButtonStyle}"
+                                Click="NextButton_Click"
+                                Grid.Column="1"
+                                Margin="0 0 4 0">
+                                <fa:IconBlock Icon="ForwardStep" FontSize="14"/>
+                            </Button>
+
+                            <Button Height="30"
+                                Style="{StaticResource Win98ButtonStyle}"
+                                Click="PlayButton_Click"
+                                Grid.Column="2"
+                                Margin="0 0 4 0">
+                                <fa:IconBlock Icon="Play" FontSize="14"/>
+                            </Button>
+
+                            <Button Height="30"
+                                Style="{StaticResource Win98ButtonStyle}"
+                                Click="PauseButton_Click"
+                                Grid.Column="3"
+                                Margin="0 0 4 0">
+                                <fa:IconBlock Icon="Pause" FontSize="14"/>
+                            </Button>
+
+                            <Button Height="30"
+                                Style="{StaticResource Win98ButtonStyle}"
+                                Click="StopButton_Click"
+                                Grid.Column="4">
+                                <fa:IconBlock Icon="Stop" FontSize="14"/>
+                            </Button>
                         </Grid>
 
 

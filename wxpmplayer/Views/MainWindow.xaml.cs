@@ -20,20 +20,21 @@ namespace wxpmplayer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DispatcherTimer timer;
+        private DispatcherTimer _timer;
         private MediaPlayer _player;
-
+        private AudioPlayer _audioPlayer;
         public MainWindow()
         {
             InitializeComponent();
-            timer = new DispatcherTimer();
+            _timer = new DispatcherTimer();
             _player = new MediaPlayer();
+            _audioPlayer = new AudioPlayer();
 
-            timer.Interval = TimeSpan.FromMilliseconds(500);
-            timer.Tick += Timer_Tick;
+
+            _timer.Interval = TimeSpan.FromMilliseconds(500);
+            _timer.Tick += Timer_Tick;
         }
 
-        private bool _isPaused = false;
         private int _currentIndex = -1;
 
         private List<Song> _songs = new List<Song>();
@@ -48,30 +49,18 @@ namespace wxpmplayer
             {
                 return;
             }
-            double currentPosition = _player.Position.TotalSeconds;
+
+            double currentPosition = _audioPlayer.GetPlaybackPositionInSeconds();
             ProgressSlider.Value = currentPosition;
         }
-      
-        private void PlaySong(Song song)
+
+        private void Play(Song song)
         {
-            //if (!song)
-            //{
-            //    return;
-            //}
+            _audioPlayer.Play(song);
 
-            //if (index >= 0 && index <= _songs.Count)
-            //{
-            //    return;
-            //}
-
-            //_currentIndex = index;
-            //TrackComboBox.SelectedIndex = _currentIndex;
-            _player.Open(new Uri(song.FilePath));
-            //_player.Open(new Uri(_currentPlaylist[_currentIndex].FilePath));
-            _player.Play();
-
-            timer.Start();
+        
             ProgressSlider.Maximum = song.Duration.TotalSeconds;
+            _timer.Start();
         }
 
         private void LoadPlaylist_Click(object sender, RoutedEventArgs e)
@@ -110,19 +99,10 @@ namespace wxpmplayer
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-
-            if (_isPaused)
-            {
-                _player.Play();
-                _isPaused = false;
-                timer.Start();
-                return;
-            }
-
             if (TrackComboBox.SelectedItem is Song selectedSong) {
                 _currentIndex = TrackComboBox.SelectedIndex;
                 Song song = _currentPlaylist[_currentIndex];
-                PlaySong(song);
+                Play(song);
             }
         }
 
@@ -138,14 +118,15 @@ namespace wxpmplayer
             if (nextIndex >= _currentPlaylist.Count)
             {
                 _currentIndex = 0;
-                PlaySong(_currentPlaylist[_currentIndex]);
+                Play(_currentPlaylist[_currentIndex]);
+
                 return;
 
             }
 
             _currentIndex++;
             Song song = _currentPlaylist[_currentIndex];
-            PlaySong(song);
+            Play(song);
             TrackComboBox.SelectedIndex = _currentIndex;
         }
 
@@ -161,27 +142,26 @@ namespace wxpmplayer
             if (nextIndex <= 0)
             {
                 _currentIndex = _currentPlaylist.Count - 1;
-                PlaySong(_currentPlaylist[_currentIndex]);
+                Play(_currentPlaylist[_currentIndex]);
                 return;
 
             }
 
             _currentIndex--;
             Song song = _currentPlaylist[_currentIndex];
-            PlaySong(song);
+            Play(song);
             TrackComboBox.SelectedIndex = _currentIndex;
         }
 
         private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
-            _player.Pause();
-            _isPaused = true;
-            timer.Stop();
+            _audioPlayer.Pause();
+            _timer.Stop();
         }
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
-            _player.Stop();
-            timer.Stop();
+            _audioPlayer.Stop();
+            _timer.Stop();
         }
 
 
@@ -217,7 +197,7 @@ namespace wxpmplayer
                 NoAlbumArtText.Visibility = Visibility.Visible;
             }
 
-            PlaySong(_song);
+            Play(_song);
         }
 
         private void ArtistComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -235,7 +215,7 @@ namespace wxpmplayer
                 return;
             }
 
-            _player.Stop();
+            _audioPlayer.Stop();
 
             var filteredSongs = _songs
                 .Where(song => song.Artist == selectedArtist)
@@ -256,8 +236,7 @@ namespace wxpmplayer
         private void ProgressSlider_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             isDragging = false;
-            _player.Position = TimeSpan.FromSeconds(ProgressSlider.Value);
-
+            _audioPlayer.SetPlaybackPosition(ProgressSlider.Value);
         }
     }
 }

@@ -12,7 +12,7 @@
         UseLayoutRounding="True"
         Background="Transparent"
         Title="MainWindow" 
-        Height="210" Width="430">
+        Height="214" Width="430">
     <Window.Resources>
 
     </Window.Resources>
@@ -37,13 +37,14 @@
 
 
             <!-- Title Bar -->
-            <Border Grid.Row="0"
-            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+            <Border 
+                Grid.Row="0"
+                Height="24"
+                MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#0A246A" Offset="0.0" />
-                        <GradientStop Color="#A6CAF0" Offset="0.4" />
-                        <GradientStop Color="#D4D0C8" Offset="1.0" />
+                        <GradientStop Color="#26268C" Offset="0.0" />
+                        <GradientStop Color="#4096D0" Offset="1.0" />
                     </LinearGradientBrush>
                 </Border.Background>
                 <Grid>
@@ -99,7 +100,8 @@
                     <Border Height="120" Width="140" BorderBrush="Gray" BorderThickness="2" Margin="2,0,0,2" Grid.ColumnSpan="2">
                         <Grid>
                             <TextBlock x:Name="NoAlbumArtText" Text="No image available." FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="SlateGray"/>
-                            <Image x:Name="AlbumArt" Stretch="UniformToFill"/> 
+
+                            <Image x:Name="AlbumArt" Stretch="UniformToFill"/>
                         </Grid>
                     </Border>
 

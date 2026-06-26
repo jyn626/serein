@@ -13,7 +13,7 @@
         Background="Transparent"
         Title="MainWindow" 
         Topmost="True"
-        Height="214" Width="430">
+        Height="219" Width="430">
     <Window.Resources>
 
     </Window.Resources>
@@ -81,7 +81,7 @@
                     </Button>
                 </Grid>
             </Border>
-            <Menu Grid.Row="1" Background="Transparent">
+            <Menu Grid.Row="1" Background="Transparent" Margin="0 2 0 2">
                 <MenuItem >
                     <MenuItem.Header>
                         <TextBlock FontSize="10" Text="Disc" TextDecorations="Underline"/>

@@ -81,6 +81,8 @@ namespace wxpmplayer
 
                 if (_songs.Count > 0)
                 {
+                    _currentPlaylist = _songs;
+
                     List<string> artists = _songs
                         .Select(song => song.Artist)
                         .Distinct()
@@ -98,7 +100,6 @@ namespace wxpmplayer
                     TrackComboBox.SelectedIndex = _currentIndex;
                     ArtistComboBox.SelectedIndex = 0;
 
-                    _currentPlaylist = _songs;
 
                 }
             }

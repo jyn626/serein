@@ -23,6 +23,12 @@ namespace wxpmplayer
         private DispatcherTimer _timer;
         private MediaPlayer _player;
         private AudioPlayer _audioPlayer;
+        private int _currentIndex = -1;
+
+        private List<Song> _songs = new List<Song>();
+        private List<Song> _currentPlaylist = new List<Song>();
+
+        private bool isDragging = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,14 +40,6 @@ namespace wxpmplayer
             _timer.Interval = TimeSpan.FromMilliseconds(500);
             _timer.Tick += Timer_Tick;
         }
-
-        private int _currentIndex = -1;
-
-        private List<Song> _songs = new List<Song>();
-        private List<Song> _currentPlaylist = new List<Song>();
-
-        private bool isDragging = false;
-
 
         private void Timer_Tick(object? sender, EventArgs e)
         {
@@ -119,14 +117,13 @@ namespace wxpmplayer
             {
                 _currentIndex = 0;
                 Play(_currentPlaylist[_currentIndex]);
-
+                TrackComboBox.SelectedIndex = _currentIndex;
                 return;
 
             }
 
             _currentIndex++;
-            Song song = _currentPlaylist[_currentIndex];
-            Play(song);
+            Play(_currentPlaylist[_currentIndex]);
             TrackComboBox.SelectedIndex = _currentIndex;
         }
 
@@ -139,18 +136,18 @@ namespace wxpmplayer
 
             int nextIndex = _currentIndex - 1;
 
-            if (nextIndex <= 0)
+            if (nextIndex < 0)
             {
                 _currentIndex = _currentPlaylist.Count - 1;
+                TrackComboBox.SelectedIndex = _currentIndex;
                 Play(_currentPlaylist[_currentIndex]);
                 return;
 
             }
 
             _currentIndex--;
-            Song song = _currentPlaylist[_currentIndex];
-            Play(song);
             TrackComboBox.SelectedIndex = _currentIndex;
+            Play(_currentPlaylist[_currentIndex]);
         }
 
         private void PauseButton_Click(object sender, RoutedEventArgs e)

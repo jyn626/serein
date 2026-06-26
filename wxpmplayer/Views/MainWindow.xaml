@@ -5,15 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wxpmplayer"
         mc:Ignorable="d"
-        FontFamily="Tahoma"
+        FontFamily="Segoe UI"
         WindowStyle="None"
         ResizeMode="NoResize"
-        BorderThickness="1"
         AllowsTransparency="True"
+        UseLayoutRounding="True"
         Background="Transparent"
-        Title="MainWindow" Height="180" Width="400">
-    
-    <Border  Background="#B7B7B7" BorderThickness="1" >
+        Title="MainWindow" 
+        Height="210" Width="430">
+    <Window.Resources>
+
+    </Window.Resources>
+
+    <Border Margin="15" Background="#B7B7B7" BorderThickness="2" BorderBrush="Gray">
+        <Border.Effect>
+            <DropShadowEffect 
+                BlurRadius="15" 
+                RenderingBias="Quality" 
+                ShadowDepth="0" 
+                Opacity=".6" 
+                Color="Black"/>
+        </Border.Effect>
         <Grid>
 
             <Grid.RowDefinitions>
@@ -86,7 +98,7 @@
 
                     <Border Height="120" Width="140" BorderBrush="Gray" BorderThickness="2" Margin="2,0,0,2" Grid.ColumnSpan="2">
                         <Grid>
-                            <TextBlock Visibility="Collapsed" x:Name="NoAlbumArtText" Text="No image available." FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="SlateGray"/>
+                            <TextBlock x:Name="NoAlbumArtText" Text="No image available." FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="SlateGray"/>
                             <Image x:Name="AlbumArt" Stretch="UniformToFill"/> 
                         </Grid>
                     </Border>

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="clr-namespace:FontAwesome.Sharp;assembly=FontAwesome.Sharp"
         xmlns:local="clr-namespace:serein" 
+        Icon="/Assets/Icons/favicon.ico"
         mc:Ignorable="d"
         FontFamily="Segoe UI"
         WindowStyle="None"
@@ -54,13 +55,15 @@
                         <ColumnDefinition Width="40"/>
                         <ColumnDefinition Width="40"/>
                     </Grid.ColumnDefinitions>
-
-                    <TextBlock 
+                    <StackPanel Margin="4 0 0 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Image Source="/Assets/Icons/favicon.ico" Height="18" Width="18"/>
+                        <TextBlock 
                         Text="Serein"
                         Foreground="White"
                         FontWeight="bold"
                         VerticalAlignment="Center"
                         Margin="10,0"/>
+                    </StackPanel>
 
                     <!-- Minimize -->
                     <Button 

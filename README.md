@@ -1,8 +1,8 @@
 > [!WARNING]
 > in development.
  
- # wxpmplayer
-windows xp themed music player inspired by old ui aesthetics built with wpf
+ # Serein
+Windows XP themed minimalist music player, inspired by old UI aesthetics.
 
 ## License
 

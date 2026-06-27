@@ -241,6 +241,8 @@ namespace wxpmplayer
             _currentIndex = 0;
             TrackComboBox.ItemsSource = _currentPlaylist;
             TrackComboBox.SelectedItem = _currentPlaylist[_currentIndex];
+
+            Play(_currentPlaylist[_currentIndex]);
         }
 
         private void ProgressSlider_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

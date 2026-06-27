@@ -13,7 +13,6 @@
         UseLayoutRounding="True"
         Background="Transparent"
         Title="MainWindow" 
-        Topmost="True"
         Height="219" Width="460">
     <Window.Resources>
 

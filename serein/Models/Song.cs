@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Media.Imaging;
 
-namespace wxpmplayer.Models
+namespace serein.Models
 {
     public class Song
     {

@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using System.IO;
 using System.Windows.Media.Imaging;
-using wxpmplayer.Models;
+using serein.Models;
 
-namespace wxpmplayer.Services
+namespace serein.Services
 {
     public class MetadataService
     {

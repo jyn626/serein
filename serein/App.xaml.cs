@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace wxpmplayer
+namespace serein
 {
     /// <summary>
     /// Interaction logic for App.xaml

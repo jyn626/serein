@@ -1,11 +1,11 @@
-﻿using wxpmplayer.Models;
+﻿using serein.Models;
 using System.Drawing;
 using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using TagLib; 
 
-namespace wxpmplayer.Services
+namespace serein.Services
 {
     public class PlaylistLoader
     {

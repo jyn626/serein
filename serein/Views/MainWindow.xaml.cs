@@ -1,5 +1,5 @@
-﻿using wxpmplayer.Models;
-using wxpmplayer.Services;
+﻿using serein.Models;
+using serein.Services;
 using Microsoft.Win32;
 using System.Text;
 using System.Windows;
@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace wxpmplayer
+namespace serein
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,7 +1,7 @@
-﻿<Application x:Class="wxpmplayer.App"
+﻿<Application x:Class="serein.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:wxpmplayer"
+             xmlns:local="clr-namespace:serein"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

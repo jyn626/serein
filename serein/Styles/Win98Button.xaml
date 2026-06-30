@@ -7,45 +7,52 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-
-                    <Border x:Name="OuterDark"
-                            BorderBrush="#202020"
-                            BorderThickness="0,0,1,1"
+                    <Border x:Name="OuterLight"
+                        BorderBrush="#FFFFFF"
+                        BorderThickness="1,1,0,0"
+                    >
+                        <Border x:Name="InnerLight"
+                            BorderBrush="#F1EFEA"
+                            BorderThickness="1,1,0,0"
                         >
-                        <Border x:Name="InnerDark"
-                                BorderBrush="#40505050"
-                                BorderThickness="0,0,1,1">
-
-                                <Border x:Name="InnerLight"
-                                        BorderBrush="#90FFFFFF"
-                                        BorderThickness="2,2,0,0"
-                                        Background="{TemplateBinding Background}"
-                                        Padding="2">
-
-                                    <ContentPresenter x:Name="contentPresenter"
-                                                      HorizontalAlignment="Center"
-                                                      VerticalAlignment="Center"/>
-
+                            <!--#F1EFEA-->
+                            <Border x:Name="OuterDark"
+                                BorderBrush="#404040"
+                                BorderThickness="0,0,1,1"
+                            >
+                                <Border x:Name="InnerDark"
+                                    BorderBrush="#808080"
+                                    BorderThickness="0,0,1,1"
+                                    Background="{TemplateBinding Background}"
+                                    Padding="2"
+                                    >
+                                    <ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
+                            </Border>
                         </Border>
                     </Border>
 
                     <ControlTemplate.Triggers>
 
                         <!-- Hover -->
-                        <Trigger Property="IsMouseOver" Value="True">
+                        <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="InnerDark"
                                 Property="Background"
-                                Value="#505050"/>
+                                Value="#F1EFEA"/>
                         </Trigger>
 
 
                         <Trigger Property="IsPressed" Value="True">
 
-                            <Setter TargetName="InnerLight"
+                            <Setter TargetName="OuterLight"
                                     Property="BorderBrush"
                                     Value="#202020"/>
 
+                            <Setter TargetName="InnerLight"
+                                 Property="BorderBrush"
+                                 Value="#404040"/>
+
+                            
                             <Setter TargetName="OuterDark"
                                     Property="BorderBrush"
                                     Value="#FFFFFF"/>
@@ -53,7 +60,7 @@
 
                             <Setter TargetName="InnerDark"
                                     Property="BorderBrush"
-                                    Value="#DFDFDF"/>
+                                    Value="#F1EFEA"/>
                             
                             <Setter TargetName="contentPresenter"
                                     Property="Margin"

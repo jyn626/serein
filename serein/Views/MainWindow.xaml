@@ -15,7 +15,7 @@
         UseLayoutRounding="True"
         Background="Transparent"
         Title="MainWindow" 
-        Height="221" Width="464"
+        Height="210" Width="464"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -95,20 +95,23 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
-                       <!-- arrow properties -->
-                        <Border BorderBrush="Gray" BorderThickness="1.5,1.5,1,0">
-                            <Border BorderBrush="LightGray" BorderThickness="0,0,0,2">
-
+                       <!-- arrow and main borders -->
+                        <Border BorderBrush="White" BorderThickness="0,0,1,1" SnapsToDevicePixels="True">
+                            <Border BorderBrush="Gray" BorderThickness="2,2,1,0">
+                                <Border BorderBrush="LightGray" BorderThickness="0,0,0,2">
                                 <Border x:Name="templateRoot" Background="{StaticResource ComboBox.Static.Background}" BorderBrush="#404040" BorderThickness="1,1,1,0" SnapsToDevicePixels="true">
-                                <Border x:Name="splitBorder" Background="#D3D0CB"  HorizontalAlignment="Right" Margin="0" SnapsToDevicePixels="true" Width="25">
-                                <Border BorderBrush="#D3D0CB" BorderThickness="1,1,0,0">
-                                            <Border BorderBrush="#202020" BorderThickness="0,0,1,1">
+                                    <Border x:Name="splitBorder" Background="#D3D0CB"  HorizontalAlignment="Right" Margin="0" SnapsToDevicePixels="true" Width="22">
+                                        <Border BorderBrush="#D3D0CB" BorderThickness="1,1,0,0">
+                                                <!-- dark outer -->
                                                 <Border BorderBrush="#404040" BorderThickness="0,0,1,1">
-                                        <Border BorderThickness="0.5,0.5,0,0" BorderBrush="#98FFFFFF">
-                                            <Path x:Name="arrow" Data="M 0,0 L 9,0 L 4.5,4.5 Z" Fill="#000000" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
-                                        </Border>
+                                                <!-- dark inner -->
+                                                <Border BorderBrush="#808080" BorderThickness="0,0,1,1">
+                                                    <Border BorderThickness="1,1,0,0" BorderBrush="White">
+                                                        <Path x:Name="arrow" Data="M 0,0 L 9,0 L 4.5,4.5 Z" Fill="#000000" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+                                                    </Border>       
                                                 </Border>
                                             </Border>
+                                        </Border>
                                         </Border>
                                     </Border>
                                 </Border>
@@ -196,7 +199,7 @@
             </Setter>
         </Style>
         <ControlTemplate x:Key="ComboBoxEditableTemplate" TargetType="{x:Type ComboBox}">
-            <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+            <Grid x:Name="templateRoot" SnapsToDevicePixels="true" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
@@ -267,7 +270,7 @@
                         </Border>
                     </theme:SystemDropShadowChrome>
                 </Popup>
-                <ToggleButton x:Name="toggleButton" Background="Red" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+                <ToggleButton x:Name="toggleButton" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
                 <ContentPresenter x:Name="contentPresenter" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" Content="{TemplateBinding SelectionBoxItem}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Grid>
             <ControlTemplate.Triggers>
@@ -468,7 +471,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <Button Height="30" 
+                            <Button Height="22" 
                                 Style="{StaticResource Win98ButtonStyle}"
                                 Click="PrevButton_Click"
                                 Grid.Column="0"
@@ -476,7 +479,7 @@
                                 <fa:IconBlock Icon="BackwardStep" FontSize="14"/>
                             </Button>
 
-                            <Button Height="30"
+                            <Button Height="22"
                                 Style="{StaticResource Win98ButtonStyle}"
                                 Click="NextButton_Click"
                                 Grid.Column="1"
@@ -484,7 +487,7 @@
                                 <fa:IconBlock Icon="ForwardStep" FontSize="14"/>
                             </Button>
 
-                            <Button Height="30"
+                            <Button Height="22"
                                 Style="{StaticResource Win98ButtonStyle}"
                                 Click="PlayButton_Click"
                                 Grid.Column="2"
@@ -492,7 +495,7 @@
                                 <fa:IconBlock Icon="Play" FontSize="14"/>
                             </Button>
 
-                            <Button Height="30"
+                            <Button Height="22"
                                 Style="{StaticResource Win98ButtonStyle}"
                                 Click="PauseButton_Click"
                                 Grid.Column="3"
@@ -500,7 +503,7 @@
                                 <fa:IconBlock Icon="Pause" FontSize="14"/>
                             </Button>
 
-                            <Button Height="30"
+                            <Button Height="22"
                                 Style="{StaticResource Win98ButtonStyle}"
                                 Click="StopButton_Click"
                                 Grid.Column="4">

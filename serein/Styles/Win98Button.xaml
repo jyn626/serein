@@ -8,21 +8,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
 
-                    <Border x:Name="OuterLight"
-                            BorderBrush="#FFFFFF"
-                            BorderThickness="1,1,0,0">
-
-                        <Border x:Name="OuterDark"
-                                BorderBrush="#404040"
+                    <Border x:Name="OuterDark"
+                            BorderBrush="#202020"
+                            BorderThickness="0,0,1,1"
+                        >
+                        <Border x:Name="InnerDark"
+                                BorderBrush="#40505050"
                                 BorderThickness="0,0,1,1">
 
-                            <Border x:Name="InnerLight"
-                                    BorderBrush="#DFDFDF"
-                                    BorderThickness="1,1,0,0">
-
-                                <Border x:Name="InnerDark"
-                                        BorderBrush="#808080"
-                                        BorderThickness="0,0,1,1"
+                                <Border x:Name="InnerLight"
+                                        BorderBrush="#90FFFFFF"
+                                        BorderThickness="2,2,0,0"
                                         Background="{TemplateBinding Background}"
                                         Padding="2">
 
@@ -31,7 +27,6 @@
                                                       VerticalAlignment="Center"/>
 
                                 </Border>
-                            </Border>
                         </Border>
                     </Border>
 
@@ -41,23 +36,20 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="InnerDark"
                                 Property="Background"
-                                Value="#E3E1DB"/>
+                                Value="#505050"/>
                         </Trigger>
 
 
                         <Trigger Property="IsPressed" Value="True">
 
-                            <Setter TargetName="OuterLight"
+                            <Setter TargetName="InnerLight"
                                     Property="BorderBrush"
-                                    Value="#808080"/>
+                                    Value="#202020"/>
 
                             <Setter TargetName="OuterDark"
                                     Property="BorderBrush"
                                     Value="#FFFFFF"/>
 
-                            <Setter TargetName="InnerLight"
-                                    Property="BorderBrush"
-                                    Value="#404040"/>
 
                             <Setter TargetName="InnerDark"
                                     Property="BorderBrush"

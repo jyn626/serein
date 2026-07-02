@@ -28,7 +28,18 @@ Instead of streaming services, recommendations, or subscriptions, Serein is desi
 
 ## Preview
 
-> Screenshots coming soon.
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <img width="400" height="270" alt="2026-07-02 16-07-17 - frame at 0m2s" src="https://github.com/user-attachments/assets/55784e02-70db-4463-9487-3143b4aaaacb" />
+   </td>
+   <td>
+    <img width="400" height="270" alt="2026-06-30 21-35-38 - frame at 0m1s" src="https://github.com/user-attachments/assets/8d01dc24-4175-48a2-ab1b-95c93355f3dc" />
+   </td>
+  </tr>
+ </tbody>
+</table>
 
 ---
 

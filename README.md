@@ -1,5 +1,5 @@
 > [!WARNING]
-> Project in development.
+> In development
  
 # Serein
 

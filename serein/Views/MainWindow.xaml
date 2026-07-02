@@ -752,7 +752,7 @@
                                 Click="PrevButton_Click"
                                 Grid.Column="0"
                                 Margin="0 0 4 0">
-                                <fa:IconBlock Icon="BackwardStep" FontSize="14"/>
+                                <fa:IconBlock Icon="Backward" FontSize="14"/>
                             </Button>
 
                             <Button Height="22"
@@ -760,7 +760,7 @@
                                 Click="NextButton_Click"
                                 Grid.Column="1"
                                 Margin="0 0 4 0">
-                                <fa:IconBlock Icon="ForwardStep" FontSize="14"/>
+                                <fa:IconBlock Icon="Forward" FontSize="14"/>
                             </Button>
 
                             <Button Height="22"

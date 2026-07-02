@@ -21,8 +21,7 @@ namespace serein
     public partial class MainWindow : Window
     {
         private DispatcherTimer _timer;
-        private MediaPlayer _player;
-        private AudioPlayer _audioPlayer;
+        private PlaybackService _playbackService;
         private int _currentIndex = -1;
 
         private List<Song> _songs = new List<Song>();
@@ -33,8 +32,7 @@ namespace serein
         {
             InitializeComponent();
             _timer = new DispatcherTimer();
-            _player = new MediaPlayer();
-            _audioPlayer = new AudioPlayer();
+            _playbackService = new PlaybackService();
 
 
             _timer.Interval = TimeSpan.FromMilliseconds(500);
@@ -48,21 +46,21 @@ namespace serein
                 return;
             }
 
-            if (_audioPlayer.isMediaEnded)
+            if (_playbackService.isMediaEnded)
             {
                 GoToNextTrack();
-                _audioPlayer.isMediaEnded = false;
+                _playbackService.isMediaEnded = false;
                 return;
             }
 
-            double currentPosition = _audioPlayer.GetPlaybackPositionInSeconds();
+            double currentPosition = _playbackService.GetPlaybackPositionInSeconds();
             ProgressSlider.Value = currentPosition;
-            CurrentPositionTextBlock.Text = _audioPlayer.GetPlaybackCurrentPosition().ToString("mm':'ss");
+            CurrentPositionTextBlock.Text = _playbackService.GetPlaybackCurrentPosition().ToString("mm':'ss");
         }
 
         private void Play(Song song)
         {
-            _audioPlayer.Play(song);
+            _playbackService.Play(song);
             DurationTextBlock.Text = song.Duration.ToString("mm':'ss");
         
             ProgressSlider.Maximum = song.Duration.TotalSeconds;
@@ -76,7 +74,7 @@ namespace serein
             if (dialog.ShowDialog() == true)
             {
                 string folder = dialog.FolderName;
-                _songs = PlaylistLoader.LoadSongs(folder);
+                _songs = PlaylistService.LoadSongs(folder);
 
                 if (_songs.Count > 0)
                 {
@@ -171,12 +169,12 @@ namespace serein
 
         private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
-            _audioPlayer.Pause();
+            _playbackService.Pause();
             _timer.Stop();
         }
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
-            _audioPlayer.Stop();
+            _playbackService.Stop();
             _timer.Stop();
         }
 
@@ -231,7 +229,7 @@ namespace serein
                 return;
             }
 
-            _audioPlayer.Stop();
+            _playbackService.Stop();
 
             var filteredSongs = _songs
                 .Where(song => song.Artist == selectedArtist)
@@ -254,7 +252,7 @@ namespace serein
         private void ProgressSlider_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             isDragging = false;
-            _audioPlayer.SetPlaybackPosition(ProgressSlider.Value);
+            _playbackService.SetPlaybackPosition(ProgressSlider.Value);
         }
 
         private void AlwaysShow_Checked(object sender, RoutedEventArgs e)

@@ -9,14 +9,14 @@ using serein.Models;
 
 namespace serein.Services
 {
-    public class AudioPlayer
+    public class PlaybackService
     {
 
         private readonly MediaPlayer _player;
         public bool isPaused = false;
         public bool isMediaEnded = false;
 
-        public AudioPlayer()
+        public PlaybackService()
         {
             _player = new MediaPlayer();
             _player.MediaEnded += _player_MediaEnded;

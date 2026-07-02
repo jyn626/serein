@@ -7,7 +7,7 @@ using TagLib;
 
 namespace serein.Services
 {
-    public class PlaylistLoader
+    public class PlaylistService
     {
 
         public static List<Song> LoadSongs(string folder)

@@ -28,6 +28,8 @@ Instead of streaming services, recommendations, or subscriptions, Serein is desi
 
 ## Preview
 
+> July 2, 2026
+
 <table>
  <tbody>
   <tr>

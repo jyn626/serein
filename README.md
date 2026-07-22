@@ -94,7 +94,7 @@ Serein/
 - [ ] Keyboard shortcuts
 - [ ] Theme customization
 - [ ] Volume control
-- [ ] Remember music path
+- [ ] Cache music path
 
 ---
 

@@ -1,9 +1,9 @@
 > [!WARNING]
-> in development.
+> In development
  
 # Serein
 
-Serein is a lightweight desktop music player built with **C#** and **WPF**. Inspired by the simplicity of classic Windows media players and the soft aesthetic of forgotten software from the early 2000s, Serein focuses on one thing: enjoying your local music library.
+Serein is a lightweight desktop music player built with **C#** and **WPF**. Inspired by the soft aesthetic of softwares from the late 90s and early 2000s, Serein focuses on one thing: enjoying your local music library.
 
 Instead of streaming services, recommendations, or subscriptions, Serein is designed for people who still keep folders full of MP3s and enjoy owning their music collection.
 
@@ -28,7 +28,20 @@ Instead of streaming services, recommendations, or subscriptions, Serein is desi
 
 ## Preview
 
-> Screenshots coming soon.
+> July 2, 2026
+
+<table>
+ <tbody>
+  <tr>
+   <td>
+    <img width="400" height="270" alt="2026-07-02 16-07-17 - frame at 0m2s" src="https://github.com/user-attachments/assets/55784e02-70db-4463-9487-3143b4aaaacb" />
+   </td>
+   <td>
+    <img width="400" height="270" alt="image" src="https://github.com/user-attachments/assets/15efe1f4-1a19-43dc-babb-6d25ec0514af" />
+   </td>
+  </tr>
+ </tbody>
+</table>
 
 ---
 
@@ -81,6 +94,7 @@ Serein/
 - [ ] Keyboard shortcuts
 - [ ] Theme customization
 - [ ] Volume control
+- [ ] Cache music path
 
 ---
 
